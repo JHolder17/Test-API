@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Single AJAX</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+    var food = "chicken";
+      var queryURL = "https://recipes-shobr-v1.p.mashape.com/?method=GetRecipesByFreeText&q=" +food;
+    // var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+      headers: {
+        "X-Mashape-Key": "6yHvfiQz8QmshKLPfIkPj2hfAtVhp1jxsY4jsnuCl9PADUkPH5",
+        "Accept": "application/json"
+    }
+    }).then(function(response) {
+      console.log(response);
+    });
+// ---------------------------------------------------------
+  </script>
+
+</body>
+
+</html>
+
+<!-- curl --get --include 'https://recipes-shobr-v1.p.mashape.com/?method=GetRecipesByFreeText&q=spaghetti+med' \ -->
